@@ -36,14 +36,12 @@ export default function Post({ post, morePosts, preview }) {
               </Head>
               <PostHeader
                 title={post.title}
-                coverImage={post.coverImage}
-                date={post.date}
-                author={post.author}
+             
+                author={post.author2}
               />
               <PostBody content={post.content} />
             </article>
-            <SectionSeparator />
-            {morePosts.length > 0 && <MoreStories posts={morePosts} />}
+
           </>
         )}
       </Container>
@@ -51,13 +49,13 @@ export default function Post({ post, morePosts, preview }) {
   )
 }
 
-export async function getServerSideProps({ params, preview = false }) {
+export async function getStaticProps({ params, preview = false }) {
   const data = await getPostAndMorePosts(params.slug, preview)
   return {
     props: {
       preview,
-      post: data.post,
-      morePosts: data.morePosts || [],
+      post: data.postCopy,
+     
     },
   }
 }
