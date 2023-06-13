@@ -6,6 +6,7 @@
     "start": "next start"
   },
   "dependencies": {
+    "chinese-poetry": "^1.4.1",
     "classnames": "2.3.1",
     "date-fns": "2.28.0",
     "next": "latest",

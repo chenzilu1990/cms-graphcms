@@ -17,7 +17,7 @@ export default function PostPreview({
         </Link>
       </h3>
 
-      <p >--{author.name}</p>
+      <p >--{author}</p>
     </div>
   )
 }

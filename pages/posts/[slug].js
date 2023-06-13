@@ -15,7 +15,7 @@ import { CMS_NAME } from 'lib/constants'
 export default function Post({ post, morePosts, preview }) {
   const router = useRouter()
 
-  if (!router.isFallback && !post?.slug) {
+  if (!router.isFallback && !post?.id) {
     return <ErrorPage statusCode={404} />
   }
 
@@ -37,9 +37,9 @@ export default function Post({ post, morePosts, preview }) {
               <PostHeader
                 title={post.title}
              
-                author={post.author2}
+                author={post.author}
               />
-              <PostBody content={post.content} />
+              <PostBody content={post.paragraphs} />
             </article>
 
           </>
@@ -63,8 +63,8 @@ export async function getStaticProps({ params, preview = false }) {
 export async function getStaticPaths() {
   const posts = await getAllPostsWithSlug()
   return {
-    paths: posts.map(({ slug }) => ({
-      params: { slug },
+    paths: posts.map(({ id }) => ({
+      params: { slug: id },
     })),
     fallback: true,
   }

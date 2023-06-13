@@ -8,7 +8,7 @@ export default function PostHeader({ title, author }) {
     <>
       <PostTitle>{title}</PostTitle>
       <div className="hidden md:block md:mb-12">
-        <div className="text-xl font-bold" >--{author.name}</div>
+        <div className="text-xl font-bold" >--{author}</div>
       </div>
 
 
