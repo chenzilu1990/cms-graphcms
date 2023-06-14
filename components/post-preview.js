@@ -17,7 +17,11 @@ export default function PostPreview({
         </Link>
       </h3>
 
-      <p >--{author}</p>
+      <p >
+        <Link href={`/${author}`} className="hover:underline">
+          --{author}
+        </Link>
+      </p>
     </div>
   )
 }
