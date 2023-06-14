@@ -24,7 +24,7 @@ export default function Index({ posts, preview }) {
         <Container>
         
 
-          {morePosts.length > 0 && <MoreStories posts={morePosts} />}
+          {morePosts && morePosts.length > 0 && <MoreStories posts={morePosts} />}
         </Container>
       </Layout>
     </>
@@ -40,9 +40,7 @@ export async function getStaticProps({  params, preview = false }) {
 
 export async function getStaticPaths() {
   const posts = await getAllPostsForHome()
-  console.log(posts.map(({ author }) => ({
-      params: { author },
-    })))
+
   return {
     paths: posts.map(({ author }) => ({
       params: { author },
