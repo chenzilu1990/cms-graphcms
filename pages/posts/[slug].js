@@ -25,7 +25,7 @@ export default function Post({ post, morePosts, preview }) {
 
 
 
-  generatedImg({"inputs": post.paragraphs[0]}, post.title)
+  // generatedImg({"inputs": post.paragraphs[0]}, post.title)
   // .then((response) => {
   //   const imgURL = URL.createObjectURL(response)
     
