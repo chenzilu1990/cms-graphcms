@@ -7,8 +7,8 @@ export default function PostBody({ content }) {
         alignItems: 'center',
 
       }}>
-      {content.map((post) => (
-        <p>{post}</p>
+      {content.map((post, Index) => (
+        <p key={Index}>{post}</p>
       ))}
     </div>
   );

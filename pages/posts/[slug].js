@@ -11,13 +11,27 @@ import { getAllPostsWithSlug, getPostAndMorePosts } from 'lib/graphcms'
 import PostTitle from 'components/post-title'
 import Head from 'next/head'
 import { CMS_NAME } from 'lib/constants'
-
+import { useState } from 'react';
+import { generatedImg } from "lib/getData";
 export default function Post({ post, morePosts, preview }) {
+
+  let [imgURL , setImgURL] = useState()
+
   const router = useRouter()
 
   if (!router.isFallback && !post?.id) {
     return <ErrorPage statusCode={404} />
   }
+
+
+
+  generatedImg({"inputs": post.paragraphs[0]}, post.title)
+  // .then((response) => {
+  //   const imgURL = URL.createObjectURL(response)
+    
+  //   setImgURL(imgURL)
+
+  // });
 
   return (
     <Layout preview={preview}>
@@ -39,6 +53,7 @@ export default function Post({ post, morePosts, preview }) {
              
                 author={post.author}
               />
+              <img src={imgURL}></img>
               <PostBody content={post.paragraphs} />
             </article>
 
